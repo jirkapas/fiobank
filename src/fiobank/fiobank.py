@@ -220,3 +220,6 @@ class FioBank:
     ) -> tuple[dict, Generator[dict]]:
         data = self._fetch_last(from_id, from_date)
         return (self._parse_info(data), self._parse_transactions(data))
+
+    def set_last_id(self, from_id: str) -> None:
+        self._request("set-last-id", from_id=from_id)
